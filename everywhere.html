@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Everywhere</title>
+        <link href="https://fonts.googleapis.com/css?family=Jua|Nanum+Pen+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+        <style>
+            .container_France,.container_Effel,.container_Spain,.container_Carnival{
+                font-family: 'Do Hyeon', sans-serif;
+            }
+            .continent, .contury{
+                position:absolute;
+                color:white;
+                font-family: 'Nanum Pen Script', cursive;
+                font-size:45px;
+                text-decoration: none;
+                text-shadow: 2px 2px 2px black;
+            }
+            .continent:hover, .contury:hover{
+                color:rgb(212, 241, 243);
+                /*font-weight:bold;*/
+                text-shadow: 2px 2px 3px blue;
+                text-decoration-line: underline;
+
+            }
+            
+            #Europe{
+                top:31%;left:29%;
+            }
+            #Asia{
+                top:32%;left:40%;
+            }
+            #Africa{
+                top:46.5%;left:26.5%;
+            }
+            #North_America{
+                top:32%;left:58%;
+            }
+            #South_America{
+                top:57%;left:62%;
+            }
+            #Oceania{
+                top:68.5%;left:44.5%;
+            }
+            
+            html, body {
+                margin: 0; padding: 0;
+            }
+            body,#logo,#map{
+                margin:0;
+                padding:0;
+            }
+
+            .map{
+                width:60%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            #logo{
+                width:40%;
+                margin-left:-30px;
+
+                background-position:center top;
+            }
+            body{
+                background-image:url("배경main.png" );
+                background-size: 100%;
+                background-repeat: repeat;
+                min-width:500px;
+            }
+            .container,.container2{
+                display:none;
+                position: relative; 
+            }
+
+            #paper{
+                width:10%;
+                margin-left:auto;
+                margin-right:auto;
+                position:absoulte;
+                display:inline-block;
+                transition: 1s ease 0s;
+            }
+            #paper:hover{
+                transform-origin:50% 50%;
+                transform: rotateY(180deg);
+            }
+            #camera{
+                width:35%;
+                position:absolute;
+                right:-7%;
+                top:-15%;
+                z-index:2;
+                transform:rotate(30deg);
+                transition:transform 1s ease;
+            }
+            #camera:hover{
+                transform:rotate(0deg);
+            }
+            #bag{
+                width:23%;
+                position: absolute;
+                left:0%;
+                top:4%;
+                z-index:2;
+                transform:rotate(-30deg);
+                transition:transform 1s ease;
+            }
+            #bag:hover{
+                transform:rotate(0deg);
+            }
+            #Portugal{
+                left:25%;
+                top:82.5%;
+            }
+            #Spain{
+                left:29%;
+                top:78%;
+            }
+            #Italy{
+                left:42%;
+                top:75%;
+            }
+            #France{
+                left:34.5%;
+                top:66%;
+            }
+            #Sweden{
+                left:43.5%;
+                top:29%;
+            }
+            #Germany{
+                left:41%;
+                top:55%;
+            }
+            #Poland{
+                left:48%;
+                top:50.5%;
+            }
+            #Hungary{
+                left:48%;
+                top:63.4%;
+            }
+            #UK{
+                left:31%;
+                top:48%;
+            }
+            #Norway{
+                left:39%;
+                top:22%;
+            }
+            #back1, #back2,#back3,#back4,#back5{
+                
+                position:absolute;
+            
+                border-top-left-radius:50px 40px;
+                border-top-right-radius:50px 40px;
+                border-bottom-right-radius:50px 40px;
+                border-bottom-left-radius:50px 40px;
+            }
+            #back1{
+                width:7%;
+                top:7%;
+                left:28%;
+            }
+            #back2,#back3,#back4,#back5{
+                width:12%;
+                top:2%;
+                left:2%;
+            }
+            #back1:hover,#back2:hover,#back3:hover,#back4:hover,#back5:hover{
+                /*box-shadow: 0 0 3px 3px rgba(0, 140, 186, 0.5);*/
+                background-color:rgba(230, 230, 152, 0.651);
+            }
+            .container_France,.container_Effel,.container_Spain,.container_Carnival{
+                padding:0;
+                margin:0;
+                display:none;
+                width:60%;
+                background-color:rgba(255, 255, 255, 0.658);
+                margin-left:auto;
+                margin-right:auto;
+                position:relative;
+            }
+            .information li{
+                font-size:25px;
+                text-align: center;
+                margin-left: auto;
+                margin-right:auto;
+                display:inline;
+                padding:0px;
+
+            }
+            .list li{
+                display:inline-block;
+                width:270px;
+                height:240px;
+                color:white;
+                background-size: 100% 80%;
+                background-repeat: no-repeat;
+                text-align: center;
+                font-size:35px;
+                padding-top:80px;
+                box-sizing: border-box;
+                text-shadow:0px 0px 2px black;
+            }
+            .list li:hover{
+                text-shadow: 0px 0px 15px rgba(48, 120, 255, 0.918) ;
+                opacity:0.8;
+            }
+            h1{
+                text-align: center;
+                font-size:45px;
+            }
+            
+        </style>   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#paper").click(function(){
+                $("#paper").hide();
+                $("div.container").fadeIn();
+            });
+        }); 
+
+        $(document).ready(function(){
+            $("#Europe").click(function(){
+                $("div.container").hide();
+                $(".container2").show();
+            });
+        }); 
+        $(document).ready(function(){
+            $("#back1").click(function(){
+                $(".container2").hide();
+                $(".container").show();
+            });
+        });
+        $(document).ready(function(){
+            $("#France").click(function(){
+                $(".container2").hide();
+                $(".container_France").show();
+            });
+        });
+        $(document).ready(function(){
+            $("#back2").click(function(){
+                $(".container_France").hide();
+                $(".container2").show();
+            });
+        });
+        $(document).ready(function(){
+            $("#Effel").click(function(){
+                $(".container_France").hide();
+                $(".container_Effel").show();
+            });
+        });
+        $(document).ready(function(){
+            $("#back3").click(function(){
+                $(".container_Effel").hide();
+                $(".container_France").show();
+            });
+        });
+        $(document).ready(function(){
+            $("#Carnival").click(function(){
+                $(".container_France").hide();
+                $(".container_Carnival").show();
+            });
+        });
+        $(document).ready(function(){
+            $("#back5").click(function(){
+                $(".container_Carnival").hide();
+                $(".container_France").show();
+            });
+        });
+        $(document).ready(function(){
+            $("#Spain").click(function(){
+                $(".container2").hide();
+                $(".container_Spain").show();
+            });
+        });
+        $(document).ready(function(){
+            $("#back4").click(function(){
+                $(".container_Spain").hide();
+                $(".container2").show();
+            });
+        });
+</script>
+    
+    </head>
+    <body style="position:relative;"> 
+        <img id="camera" src="카메라.png">
+        <img id="bag" src="가방3.png">
+        <div>
+            <audio controls style="position:absolute;top:0.5%;left:0.5%;">
+                <source src="음악/여행.mp3">
+            </audio>
+        </div>
+        <div><center><a href="everywhere.html"><img id="logo" src="로고.png"></a></center></div>
+        
+        <div><center><img id="paper" src="말린종이.png"></center></div>
+        <div class="container"><center><img src="세계지도그림.png" class="map"> </center>
+            <a class="continent" id="Europe">유럽</a>
+            <a class="continent" id="Asia">아시아</a>
+            <a class="continent" id="Africa">아프리카</a>
+            <a class="continent" id="North_America">북아메리카</a>
+            <a class="continent" id="South_America">남아메리카</a>
+            <a class="continent" id="Oceania">오세아니아</a>
+        </div>
+        <div class="container2"><center><img src="유럽지도3.png" class="map"></center>
+            <img src="뒤로가기.png" id="back1">
+            <a class="contury" id="Spain">스페인</a>
+            <a class="contury" id="Italy">이탈리아</a>
+            <a class="contury" id="France">프랑스</a>
+            <a class="contury" id="Sweden">스웨덴</a>
+            <a class="contury" id="Germany">독일</a>
+            <a class="contury" id="Portugal">포르투갈</a>
+            <a class="contury" id="UK">영국</a>
+            <a class="contury" id="Norway">노르웨이</a>
+            <a class="contury" id="Poland">폴란드</a>
+            <a class="contury" id="Hungary">헝가리</a>
+        </div>
+        <div class="container_France"><img src="뒤로가기.png" id="back2">
+            <img src="프랑스/국기.jpg" style="width:15%; position:absolute; top:2.5%; left:20%;">
+            <h1 style="text-align:center; font-size:100px;margin:0;">프랑스</h1>
+            <ul class="information">
+                <li>■수도 : 파리 &nbsp;</li>
+                <li>■전압 : 220V &nbsp;</li>
+                <li>■전화 : 프랑스 국가번호 33 &nbsp;</li>
+                <li>■화폐 : 1유로=1282원</li>
+            </ul>
+            <h1>관광지</h1>
+            <center><ul class="list" style="padding:0;">
+                <li id="Effel" style="background-image:url(프랑스/에펠탑.png);">에펠탑</li>
+                <li style="background-image:url(프랑스/오르세미술관.png);">오르세 미술관</li>
+                <li style="background-image:url(프랑스/노르트담대성당.png);">노르트담대성당</li>
+                <li style="background-image:url(프랑스/몽생미셸.png);">몽생미셸</li>
+                <li style="background-image:url(프랑스/루브르박물관.png);">루브르박물관</li>
+                <li style="background-image:url(프랑스/개선문.jpg);">개선문</li>
+            </ul></center>
+            <h1>축제</h1>
+            <center><ul class="list" style="padding:0;">
+                <li style="background-image:url(프랑스/레몬축제.jpg);">망통 레몬 축제</li>
+                <li id="Carnival" style="background-image:url(프랑스/니스카니발.png);">니스 카니발</li>
+                <li style="background-image:url(프랑스/아비뇽축제.png);">아비뇽 축제</li>
+            </ul></center>
+            <h1>음식</h1>
+            <center><ul class="list" style="padding:0;">
+                <li style="background-image:url(프랑스/푸아그라.jpg);">푸아그라</li>
+                <li style="background-image:url(프랑스/부야베스.jpg);">부야베스</li>
+                <li style="background-image:url(프랑스/부르기뇽.jpg);">뵈프 부르기뇽</li>
+            </ul></center>
+        </div>
+        <div class="container_Effel"><img src="뒤로가기.png" id="back3">
+            <div height="200px"><h1 style="text-align:center; font-size:90px;margin:0;">에펠탑</h1></div>
+            <img src="프랑스/에펠탑야경.jpg" style="width:40%; float:left;margin:20px; margin-top:70px; ">
+            
+            <div style="font-size:30px; margin:70px;">관광지로는 필수 코스. 사실 에펠 탑 자체는 정말 볼 것 없는 곳이지만, 파리 시내는 매우 작은데 관광지는 넘쳐나다 보니 다른 명소를 다니다 보면 에펠 탑은 반드시 이동 경로 상에 위치하게 된다. 게다가 파리 여행 중에 에펠 탑을 안 간다는 것도 찝찝하고¨. 에펠 탑을 오르는 방법은 두 가지로, 계단과 엘리베이터가 있는데, 엘리베이터 쪽은 요금이 꽤 비싸다. 그렇다고 계단 입장은 무료인가 하면 그것도 아니다. 참고로 꼭대기까지 올라가려면 28유로, 한화로 약 34000원이다. 파리 주요 명소와 박물관을 무료입장 혹은 할인 입장할 수 있게 해 주는 "파리 뮤지엄 패스"도 에펠 탑엔 적용되지 않는다. 이러다 보니 에펠 탑을 올라가지 않고 아래에서만 보는 사람도 많은 편. 에펠 탑이 위치한 마르스 광장 자체도 상당히 아름답다. 맞은 편의 샤요 궁(宮)[10]에서 사진을 찍는 사람들도 많다. 마르스 광장 바로 앞에는 중국어, 한국어, 아랍어로 적혀진 '평화'가 반복되어 있는 유리벽이 세워져 있다. </div>
+        </div>
+
+        <div class="container_Carnival"><img src="뒤로가기.png" id="back5">
+            <div height="200px"><h1 style="text-align:center; font-size:90px;margin:0;">니스카니발</h1></div>
+            <center>
+                <img src="프랑스/카니발1.jpg" style="width:40%; margin:20px; margin-top:70px;">
+                <img src="프랑스/카니발2.jpg" style="width:40%; margin:20px; margin-top:70px;">
+            </center>
+            
+            <div style="font-size:30px; margin:70px;">니스 카니발은 프랑스 남부 지중해 연안의 중심 도시 니스(Nice)에서 매년 사순절(四旬節) 전날까지 2주 동안 열리는 카니발이다. 카니발은 전 세계 가톨릭 국가들을 중심으로 성대하게 펼쳐지는 그리스도교 축제로, 부활절을 기준으로 축제 시작일이 매년 바뀌며 보통 1월 말에서 2월 사이에 시작해 사순절 전날(Mardi Gras, 참회의 화요일)에 끝난다.
+                   </div>
+
+        <div class="container_Spain"><img src="뒤로가기.png" id="back4">
+            <img src="스페인/국기.jpg" style="width:15%; position:absolute; top:2.5%; left:20%;">
+            <h1 style="text-align:center; font-size:100px;margin:0;">스페인</h1>
+            <ul class="information">
+                <li>■수도 : 마드리드 &nbsp;</li>
+                <li>■전압 : 220V &nbsp;</li>
+                <li>■전화 : 스페인 국가번호 34 &nbsp;</li>
+                <li>■화폐 : 1유로=1282원</li>
+            </ul>
+            <h1>관광지</h1>
+            <center><ul class="list" style="padding:0;">
+                <li style="background-image:url(스페인/몬주익언덕.png);">몬주익 언덕</li>
+                <li style="background-image:url(스페인/알함브라궁전.png);">알함브라 궁전</li>
+                <li style="background-image:url(스페인/콘수에그라.png);">콘수 에그라</li>
+            </ul></center>
+            <h1>축제</h1>
+            <center><ul class="list" style="padding:0;">
+                <li style="background-image:url(스페인/라스파야스.jpg);">라 스파야스</li>
+                <li style="background-image:url(스페인/산페르민.jpg);">산 페르민</li>
+                <li style="background-image:url(스페인/라토마티나.jpg);">라 토마티나</li>
+            </ul></center>
+            <h1>음식</h1>
+            <center><ul class="list" style="padding:0;">
+                <li style="background-image:url(스페인/빠에야.jpg);">빠에야</li>
+                <li style="background-image:url(스페인/타파스.jpg);">타파스</li>
+                <li style="background-image:url(스페인/샹그리아.jpg);">샹그리아</li>
+            </ul></center>
+        </div>
+
+    </body>
+</html>
+
